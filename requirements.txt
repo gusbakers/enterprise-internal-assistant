@@ -1,0 +1,27 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CRESTLINE INTERNAL ASSISTANT — Requirements
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# ── Block 1: Data Foundation ───────────────────────
+# No extra packages — only built-in Python modules
+
+# ── Block 2: RAG Core ──────────────────────────────
+qdrant-client==1.9.1
+sentence-transformers==3.0.1
+
+# ── Block 3: LangGraph Agent ───────────────────────
+langchain==0.2.6
+langchain-groq==0.1.6
+langchain-community==0.2.6
+langgraph==0.1.19
+
+# ── Block 4: Evaluation ────────────────────────────
+ragas==0.1.14
+datasets==2.20.0
+
+# ── Block 5: UI ────────────────────────────────────
+streamlit==1.36.0
+
+# ── Utilities ──────────────────────────────────────
+python-dotenv==1.0.1
+pydantic==2.7.4

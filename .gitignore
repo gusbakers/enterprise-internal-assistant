@@ -1,0 +1,62 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CRESTLINE INTERNAL ASSISTANT — .gitignore
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Generated data — run scripts to recreate locally
+data/crestline.db
+data/*.db
+
+# Generated documents — run scripts to recreate
+docs/
+
+# Environment variables — NEVER commit secrets
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# Qdrant local storage
+qdrant_storage/
+.qdrant/
+
+# RAGAS evaluation outputs
+eval_results/
+*.csv
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+logs/
