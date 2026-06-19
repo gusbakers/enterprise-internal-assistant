@@ -1,0 +1,38 @@
+CRESTLINE TECHNOLOGIES — REMOTE WORK POLICY
+Last Updated: March 2024 | Version: 2.4
+People Operations
+
+1. HYBRID SCHEDULE BY TEAM
+Standard roles:          3 days remote, 2 days in-office per week
+Engineering teams:       4 days remote, 1 day in-office (Wednesdays)
+Sales and client-facing: 3 days in-office minimum per week
+Fully remote roles:      Approved case-by-case at VP level
+
+2. CORE HOURS
+All employees must be available 10:00 AM to 3:00 PM Eastern Time, Monday through Friday.
+No mandatory meetings outside these hours.
+
+3. HOME OFFICE STIPEND
+New hire stipend:              $1,500 one-time (first 30 days)
+Annual refresh allowance:      $500 per year
+Monthly internet reimbursement: $75 per month
+Ergonomic assessment:          Available on request
+
+4. EQUIPMENT REQUIREMENTS
+- All employees receive a Crestline Pro laptop on Day 1
+- Crestline OS required on all company devices
+- CrestSecure VPN mandatory for all remote sessions
+- Personal devices not permitted for confidential data
+
+5. SECURITY REQUIREMENTS
+- Two-factor authentication mandatory on all accounts
+- CrestSecure VPN must be active for all remote work
+- Public Wi-Fi prohibited without VPN
+- Screen auto-lock required after 5 minutes
+
+6. INTERNATIONAL REMOTE WORK
+Up to 30 consecutive days per year working abroad.
+HR and Legal approval required 30 days in advance.
+
+7. CONTACT
+remote-work@crestline.com | People Operations

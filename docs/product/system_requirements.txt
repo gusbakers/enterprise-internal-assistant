@@ -1,0 +1,111 @@
+CRESTLINE OS v3.2 — SYSTEM REQUIREMENTS
+Engineering and Product Team | May 2024
+
+CRESTLINE PRO (LAPTOP)
+
+Minimum requirements:
+  Processor:    CrestChip M2 or M2 Pro
+  RAM:          8 GB unified memory
+  Storage:      256 GB NVMe SSD
+  Display:      1440p, 60Hz
+  Battery:      60 Wh (12-hour rated life)
+  Connectivity: Wi-Fi 6, Bluetooth 5.2, USB-C Thunderbolt 3
+
+Recommended requirements:
+  Processor:    CrestChip M3 or M3 Pro
+  RAM:          16 GB unified memory
+  Storage:      512 GB NVMe SSD
+  Display:      2560x1600 Liquid Retina, 120Hz ProMotion
+  Battery:      80 Wh (18-hour rated life)
+  Connectivity: Wi-Fi 6E, Bluetooth 5.3, USB-C Thunderbolt 4 x3
+
+Enterprise and power user:
+  Processor:    CrestChip M3 Max
+  RAM:          32 to 64 GB unified memory
+  Storage:      1 to 2 TB NVMe SSD
+  External:     Dual 4K display support
+
+CRESTLINE X (SMARTPHONE)
+
+Minimum:
+  Processor: CrestChip M2 Mobile
+  RAM:       6 GB
+  Storage:   128 GB
+  Battery:   4,500 mAh
+
+Recommended:
+  Processor: CrestChip M3 Mobile
+  RAM:       8 GB
+  Storage:   256 GB or 512 GB
+  Battery:   5,200 mAh (72-hour rated life)
+  Connectivity: 5G, Wi-Fi 6E, Bluetooth 5.3, NFC for CrestPay
+
+CRESTLINE WATCH
+
+Minimum:
+  Processor:    CrestChip W1
+  RAM:          1 GB
+  Storage:      16 GB
+  Paired device: Crestline X 2022 or newer, or Crestline Pro running OS 3.1+
+
+Recommended:
+  Processor:    CrestChip W2
+  RAM:          2 GB
+  Storage:      32 GB
+  Paired device: Crestline X running OS 3.2
+
+Health sensors:
+  ECG: FDA cleared, CE marked
+  Blood oxygen SpO2: accuracy plus or minus 2%
+  Heart rate: optical, continuous 24/7
+  Accelerometer and gyroscope: 6-axis
+  Skin temperature sensor
+  GPS: Crestline Watch Ultra only
+
+CRESTLINE CLOUD (BROWSER AND APP)
+
+Browser requirements:
+  Chrome 110+, Firefox 115+, Safari 16+, Edge 110+
+  Minimum resolution: 1280x720
+
+Internet connection:
+  Minimum: 25 Mbps for smooth operation
+  Recommended: 100 Mbps for large file uploads
+
+Native app on Crestline OS:
+  Auto-installed with Crestline OS 3.0 and above
+  Background sync uses less than 50 MB RAM
+  Default local cache: 2 GB (configurable 0 to 20 GB)
+
+Third-party OS support (manual install):
+  Windows 10 and 11
+  macOS 13 Ventura and newer
+  Ubuntu 22.04 LTS and newer
+
+ENTERPRISE DEPLOYMENT
+
+MDM requirements:
+  CrestMDM native (recommended) or Apple DEP compatible
+  Ports 443 and 8443 open to *.crestlinecloud.com
+  PAC files and explicit proxy configurations supported
+
+Supported identity providers:
+  Okta (recommended)
+  Microsoft Azure AD and Entra ID
+  Google Workspace
+  Any SAML 2.0 compatible provider
+
+COMPATIBILITY WITH CRESTLINE OS 3.2
+
+Fully supported:
+  Crestline Pro 2022, 2023, 2024 (M2 and M3 chips)
+  Crestline X 2022, 2023, 2024
+  Crestline Watch Series 2 and 3
+
+Not supported (end of life):
+  Crestline Pro 2020 and older
+  Crestline X 2020 and older
+  Crestline Watch Series 1
+
+Check compatibility: Settings > System > Check Compatibility
+Or visit: support.crestline.com/compatibility

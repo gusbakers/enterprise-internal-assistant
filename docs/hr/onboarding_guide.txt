@@ -1,0 +1,54 @@
+CRESTLINE TECHNOLOGIES — NEW EMPLOYEE ONBOARDING GUIDE
+Last Updated: February 2024 | People Operations
+
+WELCOME
+Congratulations on joining Crestline Technologies!
+We build hardware, software, and cloud solutions for businesses worldwide.
+
+DAY 1 CHECKLIST
+- Check in with Reception — collect badge and access card
+- 90-minute HR session: benefits enrollment and policy overview
+- IT Setup: collect Crestline Pro laptop from IT desk (Floor 3)
+- Install: Crestline OS, CrestSecure VPN, Slack, Notion, Okta
+- Set up your @crestline.com email account
+- Meet your manager — welcome lunch is fully expensed
+
+WEEK 1: ORIENTATION
+- New Hire Orientation every Monday 9:00 to 11:00 AM EST
+- Mandatory compliance training (3 courses, approx 4 hours):
+    Course 1: Data Privacy and Security (must complete by Day 5)
+    Course 2: Code of Conduct and Ethics
+    Course 3: Workplace Safety and Harassment Prevention
+- Product Deep Dive: 3-hour overview of all 5 Crestline products
+- Shadow your team for 3 days before independent work begins
+
+MONTH 1: RAMP UP
+- Complete 30-day goals document with manager (due Day 10)
+- Attend 2 to 3 team meetings as observer
+- Complete product certification for your core product area
+- Day 30 check-in with manager
+
+MONTHS 2 AND 3: INDEPENDENCE
+- Own at least 1 project independently
+- Present to your team at a weekly sync
+- Day 60: Mid-point review with HR and manager
+- Day 90: Full performance assessment
+
+KEY TOOLS
+- Slack:     crestline.slack.com
+- Notion:    notion.crestline.com
+- GitHub:    github.com/crestline-tech
+- Workday:   workday.crestline.com (PTO, payroll, benefits)
+- Okta:      okta.crestline.com (single sign-on)
+
+BENEFITS ENROLLMENT
+Deadline: 30 days from start date. No exceptions.
+Health, dental, vision, and 401k available from Day 1.
+Company 401k match: 4% with 3-year vesting.
+Wellness stipend: $100 per month (gym, therapy, meditation apps).
+
+KEY CONTACTS
+IT Help:  it-support@crestline.com  Ext. 1001
+HR:       hr@crestline.com          Ext. 1002
+Security: security@crestline.com    Ext. 1003
+Payroll:  payroll@crestline.com     Ext. 1004

@@ -1,0 +1,87 @@
+CRESTLINE CLOUD — API DOCUMENTATION
+API Version: v2 | Last Updated: April 2024
+
+BASE URL
+https://api.crestlinecloud.com/v2
+
+AUTHENTICATION
+Method: Bearer Token (OAuth 2.0)
+
+Get access token:
+POST https://auth.crestlinecloud.com/oauth/token
+Body: client_id, client_secret, grant_type: client_credentials
+
+Include in all requests:
+Authorization: Bearer {access_token}
+Token expiry: 3,600 seconds (1 hour).
+
+RATE LIMITS
+Free Tier:
+  100 requests per hour
+  1 GB storage
+  Max file size: 100 MB
+  No SLA
+
+Starter ($29 per month):
+  2,000 requests per hour
+  100 GB storage
+  Max file size: 1 GB
+  99.5% uptime SLA
+
+Business ($149 per month):
+  10,000 requests per hour
+  5 TB storage
+  Max file size: 50 GB
+  99.9% uptime SLA
+  Priority support
+
+Enterprise (custom pricing):
+  Unlimited requests
+  Unlimited storage
+  99.99% uptime SLA
+  Dedicated infrastructure
+  24/7 dedicated support
+
+Rate limit headers on every response:
+X-RateLimit-Limit: 10000
+X-RateLimit-Remaining: 9847
+X-RateLimit-Reset: 1717200000
+
+CORE ENDPOINTS
+POST   /v2/storage/upload              Upload a file
+GET    /v2/storage/files               List all files
+GET    /v2/storage/files/{id}          Get file metadata
+GET    /v2/storage/files/{id}/download Download file content
+DELETE /v2/storage/files/{id}          Delete a file
+PATCH  /v2/storage/files/{id}          Update file metadata
+POST   /v2/storage/folders             Create folder
+GET    /v2/storage/folders/{id}        Get folder contents
+GET    /v2/users                       List organization users (admin only)
+POST   /v2/users/invite                Invite new user (admin only)
+GET    /v2/analytics/storage           Storage usage breakdown
+GET    /v2/analytics/requests          API request history
+
+ERROR CODES
+400: Bad Request — invalid parameters
+401: Unauthorized — invalid or expired token
+403: Forbidden — insufficient permissions
+404: Not Found — resource does not exist
+413: Payload Too Large — file exceeds plan limit
+429: Too Many Requests — rate limit exceeded
+500: Internal Error — retry with exponential backoff
+503: Service Unavailable — check status.crestlinecloud.com
+
+WEBHOOKS
+POST /v2/webhooks
+Supported events: file.uploaded, file.deleted, file.shared,
+user.invited, user.removed, storage.quota_warning
+
+SDKS AVAILABLE
+Python:     pip install crestline-cloud-sdk
+JavaScript: npm install @crestline/cloud-sdk
+Java:       Available via Maven Central
+Go:         go get github.com/crestline/cloud-go
+
+Support: api-support@crestline.com
+Docs:    docs.crestlinecloud.com
+Status:  status.crestlinecloud.com

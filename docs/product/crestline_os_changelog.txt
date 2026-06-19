@@ -1,0 +1,73 @@
+CRESTLINE OS — VERSION HISTORY AND RELEASE NOTES
+Engineering and Product Team | Last Updated: June 2024
+
+CRESTLINE OS v3.2 — Released May 15, 2024
+Status: STABLE — Recommended for all devices
+
+NEW FEATURES
+Focus Mode 2.0:
+  AI-suggested focus schedules based on calendar and work patterns.
+  Reduces context switching by estimated 40%.
+
+CrestSync Ultra:
+  Zero-latency clipboard and handoff across all Crestline devices.
+  Copy on Watch, paste on Pro in under 200 milliseconds.
+
+Smart Notifications:
+  ML-powered notification batching reduces interruptions by 60%.
+
+Crestline Cloud Sync v2:
+  New delta-sync protocol reduces sync time by 40%.
+  Background sync uses under 50MB RAM.
+
+BUG FIXES
+CRITICAL: Fixed battery drain on Crestline Pro 2023 models.
+  Affected 12% of devices. Idle drain reduced from 18% to under 2% per hour.
+  Root cause: background CrestSync process not releasing CPU.
+Fixed Bluetooth audio dropout on Crestline X with third-party headphones.
+Resolved memory leak in CrestMail on devices with 8GB RAM.
+Fixed Wi-Fi reconnection delay after sleep — reduced from 30 seconds to under 1 second.
+Corrected time zone handling for calendar events created offline.
+
+SECURITY PATCHES
+CVE-2024-1891 — CRITICAL: Privilege escalation in CrestSecure daemon.
+CVE-2024-1823 — MEDIUM: Bluetooth pairing spoofing vulnerability.
+CVE-2024-1756 — LOW: Browser cache exposure on shared devices.
+
+PERFORMANCE
+App launch time:  18% faster on CrestChip M3 devices
+Boot time:        Reduced from 8.2 seconds to 5.1 seconds
+RAM efficiency:   22% improvement in background task management
+
+CRESTLINE OS v3.1 — Released February 8, 2024
+Status: DEPRECATED — upgrade to v3.2 strongly recommended
+
+NEW FEATURES
+Focus Mode original version.
+Redesigned Notification Center with grouped categories.
+CrestPay contactless payments via Watch (US only).
+Voice Control 3.0 with 40 new commands.
+
+BUG FIXES
+Fixed crash in CrestCloud sync for files larger than 2GB.
+Resolved incorrect battery percentage on Watch.
+Fixed keyboard layout switching for multilingual users.
+
+CRESTLINE OS v3.0 — Released October 3, 2023
+Status: DEPRECATED — no support, immediate upgrade required
+
+MAJOR RELEASE: Complete platform redesign.
+New CrestUI design language.
+Unified control center across all Crestline devices.
+CrestAI assistant integrated at OS level.
+Third-party developer ecosystem opened — App Store launched.
+Enterprise MDM built directly into OS.
+
+SUPPORT POLICY
+v3.2: Full support (current)
+v3.1: Security patches only until November 2024
+v3.0 and below: No support — upgrade immediately
+
+HOW TO UPDATE
+Settings > System > Software Update
+Time: 8 to 12 minutes. Device restart required.
