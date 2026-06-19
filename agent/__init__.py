@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 import importlib.util
+import sys
 from pathlib import Path
 from typing import Any
+
+# Add parent directory to path so we can import root-level modules
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from router import GroqRouter, Category
 from response_generator import ResponseGenerator
