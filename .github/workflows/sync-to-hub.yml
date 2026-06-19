@@ -14,15 +14,7 @@ jobs:
           rm -rf /tmp/hf-deploy
           mkdir -p /tmp/hf-deploy
           git archive HEAD | tar -x -C /tmp/hf-deploy
-
-      - name: Debug snapshot contents
-        run: |
-          echo "--- Top level ---"
-          ls -la /tmp/hf-deploy
-          echo "--- docs/ ---"
-          ls -la /tmp/hf-deploy/docs 2>&1 || echo "docs/ NOT FOUND IN SNAPSHOT"
-          echo "--- data/ ---"
-          ls -la /tmp/hf-deploy/data 2>&1 || echo "data/ NOT FOUND IN SNAPSHOT"
+          rm -rf /tmp/hf-deploy/qdrant_storage
 
       - name: Push clean snapshot to HF Space
         env:
