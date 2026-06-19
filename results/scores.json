@@ -1,0 +1,142 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "domain": "hr",
+      "question": "How many employees work in the Engineering department?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 2,
+      "domain": "hr",
+      "question": "What is the process and required documents for new employee onboarding?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 3,
+      "domain": "hr",
+      "question": "What is Crestline's PTO policy and how is carryover handled?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 4,
+      "domain": "hr",
+      "question": "Summarize the remote work policy and any eligibility criteria.",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 5,
+      "domain": "hr",
+      "question": "What steps must a manager take to request a headcount increase?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 6,
+      "domain": "marketing",
+      "question": "What is the target audience for the Crestline X launch campaign?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 7,
+      "domain": "marketing",
+      "question": "When is the planned launch date for the Crestline X campaign and key milestones?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 8,
+      "domain": "marketing",
+      "question": "What are the primary KPIs used to measure campaign success for Crestline X?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 9,
+      "domain": "marketing",
+      "question": "Where are the marketing assets for Crestline X stored and who owns them?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 10,
+      "domain": "marketing",
+      "question": "Summarize the approved key messages for the Crestline X product campaign.",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 11,
+      "domain": "product",
+      "question": "List the supported operating systems and minimum system requirements for Crestline OS.",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 12,
+      "domain": "product",
+      "question": "What are the public API endpoints available for Crestline Cloud API?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 13,
+      "domain": "product",
+      "question": "Summarize the notable items from the latest Crestline OS changelog.",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 14,
+      "domain": "product",
+      "question": "What are the integration steps for connecting Crestline X with third-party services?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 15,
+      "domain": "product",
+      "question": "Describe the product's known limitations and recommended workarounds.",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 16,
+      "domain": "sql",
+      "question": "How many Crestline X phones were sold in total?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 17,
+      "domain": "sql",
+      "question": "What was the total revenue for Crestline X sales by region last quarter?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 18,
+      "domain": "sql",
+      "question": "Which month had the highest Crestline X sales in the past year?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 19,
+      "domain": "sql",
+      "question": "Who are the top 5 customers by purchase volume for Crestline X?",
+      "response": "[NO_AGENT_AVAILABLE]"
+    },
+    {
+      "id": 20,
+      "domain": "sql",
+      "question": "Show sales broken down by channel (online, retail, reseller) for Crestline X.",
+      "response": "[NO_AGENT_AVAILABLE]"
+    }
+  ],
+  "summary": {
+    "hr": {
+      "num_questions": 5,
+      "avg_response_length": 20.0
+    },
+    "marketing": {
+      "num_questions": 5,
+      "avg_response_length": 20.0
+    },
+    "product": {
+      "num_questions": 5,
+      "avg_response_length": 20.0
+    },
+    "sql": {
+      "num_questions": 5,
+      "avg_response_length": 20.0
+    }
+  }
+}

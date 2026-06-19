@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "domain": "hr",
+    "question": "Summarize the document 'onboarding_guide.txt' in the hr domain."
+  },
+  {
+    "id": 2,
+    "domain": "hr",
+    "question": "Summarize the document 'pto_policy.txt' in the hr domain."
+  },
+  {
+    "id": 3,
+    "domain": "hr",
+    "question": "Summarize the document 'remote_work_policy.txt' in the hr domain."
+  },
+  {
+    "id": 4,
+    "domain": "hr",
+    "question": "Give a concise test question about hr policies or procedures."
+  },
+  {
+    "id": 5,
+    "domain": "hr",
+    "question": "Give a concise test question about hr policies or procedures."
+  },
+  {
+    "id": 6,
+    "domain": "marketing",
+    "question": "Summarize the document 'crestline_pro_campaign.txt' in the marketing domain."
+  },
+  {
+    "id": 7,
+    "domain": "marketing",
+    "question": "Summarize the document 'crestline_watch_campaign.txt' in the marketing domain."
+  },
+  {
+    "id": 8,
+    "domain": "marketing",
+    "question": "Summarize the document 'crestline_x_launch.txt' in the marketing domain."
+  },
+  {
+    "id": 9,
+    "domain": "marketing",
+    "question": "Give a concise test question about marketing policies or procedures."
+  },
+  {
+    "id": 10,
+    "domain": "marketing",
+    "question": "Give a concise test question about marketing policies or procedures."
+  },
+  {
+    "id": 11,
+    "domain": "product",
+    "question": "Summarize the document 'cloud_api_docs.txt' in the product domain."
+  },
+  {
+    "id": 12,
+    "domain": "product",
+    "question": "Summarize the document 'crestline_os_changelog.txt' in the product domain."
+  },
+  {
+    "id": 13,
+    "domain": "product",
+    "question": "Summarize the document 'system_requirements.txt' in the product domain."
+  },
+  {
+    "id": 14,
+    "domain": "product",
+    "question": "Give a concise test question about product policies or procedures."
+  },
+  {
+    "id": 15,
+    "domain": "product",
+    "question": "Give a concise test question about product policies or procedures."
+  },
+  {
+    "id": 16,
+    "domain": "general",
+    "question": "Give a concise test question about general policies or procedures."
+  },
+  {
+    "id": 17,
+    "domain": "general",
+    "question": "Give a concise test question about general policies or procedures."
+  },
+  {
+    "id": 18,
+    "domain": "general",
+    "question": "Give a concise test question about general policies or procedures."
+  },
+  {
+    "id": 19,
+    "domain": "general",
+    "question": "Give a concise test question about general policies or procedures."
+  },
+  {
+    "id": 20,
+    "domain": "general",
+    "question": "Give a concise test question about general policies or procedures."
+  }
+]
