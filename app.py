@@ -1,6 +1,18 @@
+import subprocess
+from pathlib import Path
+
 import streamlit as st
 
 from agent import Agent
+
+
+def _ensure_vector_store() -> None:
+    marker = Path("qdrant_storage/meta.json")
+    if not marker.exists():
+        subprocess.run(["python", "scripts/ingest_docs.py"], check=True)
+
+
+_ensure_vector_store()
 
 
 def main() -> None:
