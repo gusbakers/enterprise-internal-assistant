@@ -8,10 +8,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-          lfs: true
-      - name: Push to HF Space
+
+      - name: Build clean deploy snapshot
+        run: |
+          rm -rf /tmp/hf-deploy
+          mkdir -p /tmp/hf-deploy
+          git archive HEAD | tar -x -C /tmp/hf-deploy
+
+      - name: Push clean snapshot to HF Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://gustavoscience:$HF_TOKEN@huggingface.co/spaces/gustavoscience/crestline-internal-assistant main --force
+        run: |
+          cd /tmp/hf-deploy
+          git init -q
+          git checkout -q -b main
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git add .
+          git commit -q -m "Deploy: sync from GitHub"
+          git push --force https://gustavoscience:$HF_TOKEN@huggingface.co/spaces/gustavoscience/crestline-internal-assistant main
