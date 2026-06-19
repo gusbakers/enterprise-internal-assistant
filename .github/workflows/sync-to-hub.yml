@@ -14,4 +14,4 @@ jobs:
       - name: Push to HF Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://gusbakers:$HF_TOKEN@huggingface.co/spaces/gusbakers/crestline-internal-assistant main
+        run: git push https://gustavoscience:$HF_TOKEN@huggingface.co/spaces/gustavoscience/crestline-internal-assistant main
