@@ -11,11 +11,7 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-      - name: Debug token
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: echo "Token length is ${#HF_TOKEN} characters"
       - name: Push to HF Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://gustavoscience:$HF_TOKEN@huggingface.co/spaces/gustavoscience/crestline-internal-assistant main
+        run: git push https://gustavoscience:$HF_TOKEN@huggingface.co/spaces/gustavoscience/crestline-internal-assistant main --force
