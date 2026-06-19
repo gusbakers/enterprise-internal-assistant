@@ -15,6 +15,15 @@ jobs:
           mkdir -p /tmp/hf-deploy
           git archive HEAD | tar -x -C /tmp/hf-deploy
 
+      - name: Debug snapshot contents
+        run: |
+          echo "--- Top level ---"
+          ls -la /tmp/hf-deploy
+          echo "--- docs/ ---"
+          ls -la /tmp/hf-deploy/docs 2>&1 || echo "docs/ NOT FOUND IN SNAPSHOT"
+          echo "--- data/ ---"
+          ls -la /tmp/hf-deploy/data 2>&1 || echo "data/ NOT FOUND IN SNAPSHOT"
+
       - name: Push clean snapshot to HF Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
