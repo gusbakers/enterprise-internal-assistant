@@ -1,15 +1,16 @@
-# 🤖Crestline Internal Assistant
+# 🤖 Crestline Internal Assistant
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.12-blue?style=flat-square&logo=python" />
   <img src="https://img.shields.io/badge/Groq-Llama%203.1%208B%20Instant-green?style=flat-square" />
   <img src="https://img.shields.io/badge/Qdrant-Vector%20DB-red?style=flat-square" />
   <img src="https://img.shields.io/badge/Streamlit-UI-ff4b4b?style=flat-square&logo=streamlit" />
+  <img src="https://img.shields.io/badge/🤗%20HuggingFace-Spaces-yellow?style=flat-square" />
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" />
 </p>
 
 <p align="center">
-  <b>A multi-tool internal assistant for Crestline Technologies — a fictional B2B SaaS company.</b><br>
+  <b>An enterprise internal AI agent for Crestline Technologies — a fictional B2B SaaS company.</b><br>
   A Groq-powered router sends employee questions to four domain tools (HR, Marketing, Product RAG + SQL), backed by a Streamlit UI and an evaluation harness.
 </p>
 
