@@ -80,7 +80,7 @@ Employees can ask natural-language questions and get routed automatically to the
 
 Most portfolio agent projects I see do one thing — RAG over a folder of PDFs. I wanted something closer to what an internal assistant at an actual company would need: routing between **structured data (SQL)** and **unstructured documents (RAG)** across multiple domains, not just one.
 
-This is part of my push into AI/ML Engineering roles after finishing my MS in Machine Learning at Cornell Tech. I wanted hands-on experience with agent orchestration, not just the theory.
+
 
 ---
 
@@ -125,7 +125,6 @@ The first version of this looked complete but quietly wasn't — the eval script
 
 ## 📊 Post-Fix Validation Results
 
-**Success rate: 100.0%** (previously 0% — every response was `[NO_AGENT_AVAILABLE]`)
 
 | Domain | Questions | Avg. response length |
 |---|---|---|
@@ -209,7 +208,7 @@ MIT — see [LICENSE](LICENSE) for details.
 
 ## 👤 Author
 
-Built by **Gustavo** — Data professional  | MS Machine Learning, Cornell Tech
+Built by **Gustavo** — Data professional  | MS Machine Learning
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/gustavo-f-a27066145)
 [![GitHub](https://img.shields.io/badge/GitHub-@gusbakers-black?style=flat-square&logo=github)](https://github.com/gusbakers)
