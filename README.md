@@ -97,13 +97,13 @@ I ran this through a real debugging pass with Cursor after the first build, and 
 - Streamlit app bootstraps docs, SQLite, and Qdrant on startup and caches the agent (no rebuild per click)
 - HuggingFace Space deploy builds Qdrant fresh at runtime from a clean snapshot
 
-### ⚠️ Not There Yet
+### ⚠️ Next Engineering Improvements
 
 | Limitation | Detail |
 |---|---|
 | **No LLM answer synthesis** | Responses are raw RAG chunks / SQL rows, not summarized prose. `ResponseGenerator` formats, it doesn't yet rewrite. |
 | **SQL tool is keyword-driven** | Not true text-to-SQL — it pattern-matches question phrasing to pre-built queries rather than generating SQL from scratch. |
-| **RAGAS scores are simulated** | `evaluate_agent.py` does not yet call the real `ragas` library — current scores are not trustworthy as RAG quality metrics. |
+| **RAGAS scores ** | `evaluate_agent.py` does not yet call the real `ragas` library — current scores are not trustworthy as RAG quality metrics. |
 | **Duplicated tool code** | `HRTool`, `MarketingTool`, and `ProductTool` are ~90% identical — a shared base class hasn't been factored out yet. |
 | **Imperfect routing on edge cases** | General-domain questions can mis-route to HR because broad terms like "policies" overlap with HR keywords. |
 
