@@ -208,7 +208,10 @@ MIT — see [LICENSE](LICENSE) for details.
 
 ## 👤 Author
 
-Built by **Gustavo** — Data professional  | MS Machine Learning
+Built by **Gustavo** — Data professional  | Master's in Data Science 
+Data Engineer · ML Engineer · AI Engineer
+
+
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/gustavo-f-a27066145)
 [![GitHub](https://img.shields.io/badge/GitHub-@gusbakers-black?style=flat-square&logo=github)](https://github.com/gusbakers)
