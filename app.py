@@ -13,7 +13,9 @@ st.markdown('''<style>
 .stApp {background:#f5f8ff;color:#13254b;}
 [data-testid="stSidebar"] {background:#0c2450;}
 [data-testid="stSidebar"] * {color:#e5efff;}
-[data-testid="stSidebar"] button {background:#16386d;border:1px solid #31568a;}
+[data-testid="stSidebar"] .stButton>button {background:#16386d!important;border:1px solid #537ab2!important;color:#ffffff!important;}
+[data-testid="stSidebar"] .stButton>button:hover {background:#2457a0!important;}
+[data-testid="stSidebar"] a {color:#a9d4ff!important;}
 .block-container {max-width:1120px;padding-top:2.2rem;padding-bottom:2rem;}
 .hero {background:linear-gradient(120deg,#0b285a,#175fbe 65%,#418cde);border-radius:24px;padding:36px 40px;color:white;margin-bottom:22px;box-shadow:0 14px 38px #164a8a18;}
 .hero .eyebrow {font-size:12px;letter-spacing:2px;font-weight:700;color:#b9d6ff;}

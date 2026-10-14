@@ -1,3 +1,4 @@
+import calendar
 import json
 import re
 import time
@@ -68,8 +69,10 @@ class Assistant:
 
     @staticmethod
     def format_rows(rows):
-        def number(value):
+        def number(value, key):
+            if key=="year": return str(int(value))
+            if key=="month" and 1<=int(value)<=12: return calendar.month_name[int(value)]
             if isinstance(value,(int,float)) or type(value).__name__=="Decimal":
                 return f"{value:,.2f}" if float(value)%1 else f"{int(value):,}"
             return str(value)
-        return "\n".join("• "+" · ".join(f"{key.replace('_',' ').title()}: **{number(value)}**" for key,value in row.items()) for row in rows)
+        return "\n".join("- "+" · ".join(f"{key.replace('_',' ').title()}: **{number(value,key)}**" for key,value in row.items()) for row in rows)
