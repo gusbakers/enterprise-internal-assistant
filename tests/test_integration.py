@@ -36,3 +36,10 @@ def test_rag_answer_has_evidence(database):
     result=Assistant(database).ask('What is the maximum PTO carryover?')
     assert result.evidence and '10 days' in result.answer
     assert result.mode=='source excerpts'
+
+
+def test_remote_schedule_is_policy_not_headcount(database):
+    result=Assistant(database).ask('How many remote days can Engineering work?')
+    assert result.domain=='hr'
+    assert '4 days' in result.answer
+    assert not result.rows

@@ -47,14 +47,14 @@ def route(question):
     # Policy questions about headcount are not counts of employees.
     if re.search(r"(request|increase|approval|solicitar|aumentar).*(headcount|staff|plantilla)", q):
         return "hr"
+    if re.search(r"\b(pto|vacation|vacaciones|onboarding|remote|remoto|hybrid|hibrido|benefits|beneficios|carryover|stipend|subsidio|hr)\b", q):
+        return "hr"
     if re.search(r"\b(sold|sales|revenue|units|headcount|salary|salaries|mrr|churn|nps|ventas|vendieron|vendidos|ingresos|salario|salarios)\b", q):
         return "sql"
     if re.search(r"(how many|count|cuantos|cuantas).*(employee|people|engineering|department|empleado|ingenier|marketing|sales|finance)", q):
         return "sql"
     if re.search(r"(campaign|campana).*(budget|ctr|click|impression|conversion|presupuesto)|(?:budget|ctr|click|impression|conversion|presupuesto).*(campaign|campana)", q):
         return "sql"
-    if re.search(r"\b(pto|vacation|vacaciones|onboarding|remote|remoto|hybrid|hibrido|benefits|beneficios|carryover|stipend|subsidio|hr)\b", q):
-        return "hr"
     if re.search(r"campaign|campana|marketing|launch|lanzamiento|target audience|publico objetivo|brand", q):
         return "marketing"
     if re.search(r"\b(api|os|cloud|product|producto|requirements|requisitos|changelog|version|features|funciones|endpoints)\b", q):
