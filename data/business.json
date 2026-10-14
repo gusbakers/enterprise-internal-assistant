@@ -1,0 +1,1026 @@
+{
+  "sales": [
+    {
+      "id": 1,
+      "product": "Crestline X",
+      "month": 1,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 8950,
+      "revenue": 4391880.72,
+      "market": "UK"
+    },
+    {
+      "id": 2,
+      "product": "Crestline Pro",
+      "month": 1,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 3062,
+      "revenue": 6209324.74,
+      "market": "UK"
+    },
+    {
+      "id": 3,
+      "product": "Crestline Watch",
+      "month": 1,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 4804,
+      "revenue": 1412147.16,
+      "market": "UK"
+    },
+    {
+      "id": 4,
+      "product": "Crestline OS",
+      "month": 1,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 10231,
+      "revenue": 2351508.46,
+      "market": "UK"
+    },
+    {
+      "id": 5,
+      "product": "Crestline Cloud",
+      "month": 1,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 17966,
+      "revenue": 1174044.61,
+      "market": "USA"
+    },
+    {
+      "id": 6,
+      "product": "Crestline X",
+      "month": 2,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 7895,
+      "revenue": 3859156.53,
+      "market": "Canada"
+    },
+    {
+      "id": 7,
+      "product": "Crestline Pro",
+      "month": 2,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 3732,
+      "revenue": 7387125.09,
+      "market": "USA"
+    },
+    {
+      "id": 8,
+      "product": "Crestline Watch",
+      "month": 2,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 6926,
+      "revenue": 2053351.84,
+      "market": "Canada"
+    },
+    {
+      "id": 9,
+      "product": "Crestline OS",
+      "month": 2,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 11277,
+      "revenue": 2588046.4,
+      "market": "Canada"
+    },
+    {
+      "id": 10,
+      "product": "Crestline Cloud",
+      "month": 2,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 15580,
+      "revenue": 1000133.1,
+      "market": "UK"
+    },
+    {
+      "id": 11,
+      "product": "Crestline X",
+      "month": 3,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 9245,
+      "revenue": 4669879.52,
+      "market": "USA"
+    },
+    {
+      "id": 12,
+      "product": "Crestline Pro",
+      "month": 3,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 2588,
+      "revenue": 5258173.7,
+      "market": "USA"
+    },
+    {
+      "id": 13,
+      "product": "Crestline Watch",
+      "month": 3,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 5766,
+      "revenue": 1719214.67,
+      "market": "Canada"
+    },
+    {
+      "id": 14,
+      "product": "Crestline OS",
+      "month": 3,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 8693,
+      "revenue": 1973410.27,
+      "market": "UK"
+    },
+    {
+      "id": 15,
+      "product": "Crestline Cloud",
+      "month": 3,
+      "year": 2024,
+      "quarter": "Q1",
+      "units_sold": 24356,
+      "revenue": 1593506.18,
+      "market": "USA"
+    },
+    {
+      "id": 16,
+      "product": "Crestline X",
+      "month": 4,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 7640,
+      "revenue": 3753987.64,
+      "market": "Canada"
+    },
+    {
+      "id": 17,
+      "product": "Crestline Pro",
+      "month": 4,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 3809,
+      "revenue": 7640208.57,
+      "market": "UK"
+    },
+    {
+      "id": 18,
+      "product": "Crestline Watch",
+      "month": 4,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 5063,
+      "revenue": 1538207.98,
+      "market": "USA"
+    },
+    {
+      "id": 19,
+      "product": "Crestline OS",
+      "month": 4,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 11959,
+      "revenue": 2700446.96,
+      "market": "USA"
+    },
+    {
+      "id": 20,
+      "product": "Crestline Cloud",
+      "month": 4,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 21645,
+      "revenue": 1412596.04,
+      "market": "UK"
+    },
+    {
+      "id": 21,
+      "product": "Crestline X",
+      "month": 5,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 7636,
+      "revenue": 3905138.63,
+      "market": "Canada"
+    },
+    {
+      "id": 22,
+      "product": "Crestline Pro",
+      "month": 5,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 2669,
+      "revenue": 5219969.51,
+      "market": "UK"
+    },
+    {
+      "id": 23,
+      "product": "Crestline Watch",
+      "month": 5,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 5173,
+      "revenue": 1583646.4,
+      "market": "Canada"
+    },
+    {
+      "id": 24,
+      "product": "Crestline OS",
+      "month": 5,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 13059,
+      "revenue": 3079746.49,
+      "market": "USA"
+    },
+    {
+      "id": 25,
+      "product": "Crestline Cloud",
+      "month": 5,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 21795,
+      "revenue": 1383494.98,
+      "market": "UK"
+    },
+    {
+      "id": 26,
+      "product": "Crestline X",
+      "month": 6,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 8497,
+      "revenue": 4285917.45,
+      "market": "UK"
+    },
+    {
+      "id": 27,
+      "product": "Crestline Pro",
+      "month": 6,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 1863,
+      "revenue": 3730642.55,
+      "market": "UK"
+    },
+    {
+      "id": 28,
+      "product": "Crestline Watch",
+      "month": 6,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 7478,
+      "revenue": 2170384.58,
+      "market": "UK"
+    },
+    {
+      "id": 29,
+      "product": "Crestline OS",
+      "month": 6,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 12834,
+      "revenue": 2986350.47,
+      "market": "Canada"
+    },
+    {
+      "id": 30,
+      "product": "Crestline Cloud",
+      "month": 6,
+      "year": 2024,
+      "quarter": "Q2",
+      "units_sold": 17354,
+      "revenue": 1123594.87,
+      "market": "Canada"
+    },
+    {
+      "id": 31,
+      "product": "Crestline X",
+      "month": 7,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 7908,
+      "revenue": 4057818.83,
+      "market": "USA"
+    },
+    {
+      "id": 32,
+      "product": "Crestline Pro",
+      "month": 7,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 2441,
+      "revenue": 4764326.5,
+      "market": "UK"
+    },
+    {
+      "id": 33,
+      "product": "Crestline Watch",
+      "month": 7,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 4491,
+      "revenue": 1314838.77,
+      "market": "USA"
+    },
+    {
+      "id": 34,
+      "product": "Crestline OS",
+      "month": 7,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 8685,
+      "revenue": 2022114.03,
+      "market": "UK"
+    },
+    {
+      "id": 35,
+      "product": "Crestline Cloud",
+      "month": 7,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 19429,
+      "revenue": 1233475.01,
+      "market": "Canada"
+    },
+    {
+      "id": 36,
+      "product": "Crestline X",
+      "month": 8,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 8208,
+      "revenue": 4177297.98,
+      "market": "Canada"
+    },
+    {
+      "id": 37,
+      "product": "Crestline Pro",
+      "month": 8,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 3217,
+      "revenue": 6268247.68,
+      "market": "UK"
+    },
+    {
+      "id": 38,
+      "product": "Crestline Watch",
+      "month": 8,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 6593,
+      "revenue": 1920354.14,
+      "market": "UK"
+    },
+    {
+      "id": 39,
+      "product": "Crestline OS",
+      "month": 8,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 12725,
+      "revenue": 2922732.73,
+      "market": "Canada"
+    },
+    {
+      "id": 40,
+      "product": "Crestline Cloud",
+      "month": 8,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 24268,
+      "revenue": 1587508.6,
+      "market": "USA"
+    },
+    {
+      "id": 41,
+      "product": "Crestline X",
+      "month": 9,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 9272,
+      "revenue": 4685843.42,
+      "market": "Canada"
+    },
+    {
+      "id": 42,
+      "product": "Crestline Pro",
+      "month": 9,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 2713,
+      "revenue": 5472056.9,
+      "market": "Canada"
+    },
+    {
+      "id": 43,
+      "product": "Crestline Watch",
+      "month": 9,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 5091,
+      "revenue": 1482390.38,
+      "market": "USA"
+    },
+    {
+      "id": 44,
+      "product": "Crestline OS",
+      "month": 9,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 11559,
+      "revenue": 2604147.64,
+      "market": "USA"
+    },
+    {
+      "id": 45,
+      "product": "Crestline Cloud",
+      "month": 9,
+      "year": 2024,
+      "quarter": "Q3",
+      "units_sold": 20543,
+      "revenue": 1300636.11,
+      "market": "USA"
+    },
+    {
+      "id": 46,
+      "product": "Crestline X",
+      "month": 10,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 12135,
+      "revenue": 5899448.08,
+      "market": "USA"
+    },
+    {
+      "id": 47,
+      "product": "Crestline Pro",
+      "month": 10,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 3277,
+      "revenue": 6638510.25,
+      "market": "UK"
+    },
+    {
+      "id": 48,
+      "product": "Crestline Watch",
+      "month": 10,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 8242,
+      "revenue": 2426357.19,
+      "market": "Canada"
+    },
+    {
+      "id": 49,
+      "product": "Crestline OS",
+      "month": 10,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 13024,
+      "revenue": 2970157.63,
+      "market": "Canada"
+    },
+    {
+      "id": 50,
+      "product": "Crestline Cloud",
+      "month": 10,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 24371,
+      "revenue": 1618696.56,
+      "market": "USA"
+    },
+    {
+      "id": 51,
+      "product": "Crestline X",
+      "month": 11,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 12974,
+      "revenue": 6436200.06,
+      "market": "Canada"
+    },
+    {
+      "id": 52,
+      "product": "Crestline Pro",
+      "month": 11,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 4189,
+      "revenue": 8177496.56,
+      "market": "USA"
+    },
+    {
+      "id": 53,
+      "product": "Crestline Watch",
+      "month": 11,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 6925,
+      "revenue": 2043062.67,
+      "market": "USA"
+    },
+    {
+      "id": 54,
+      "product": "Crestline OS",
+      "month": 11,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 13657,
+      "revenue": 3047775.17,
+      "market": "UK"
+    },
+    {
+      "id": 55,
+      "product": "Crestline Cloud",
+      "month": 11,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 20200,
+      "revenue": 1274772.62,
+      "market": "USA"
+    },
+    {
+      "id": 56,
+      "product": "Crestline X",
+      "month": 12,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 11822,
+      "revenue": 6022599.09,
+      "market": "USA"
+    },
+    {
+      "id": 57,
+      "product": "Crestline Pro",
+      "month": 12,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 3046,
+      "revenue": 6235981.37,
+      "market": "USA"
+    },
+    {
+      "id": 58,
+      "product": "Crestline Watch",
+      "month": 12,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 8312,
+      "revenue": 2557655.93,
+      "market": "Canada"
+    },
+    {
+      "id": 59,
+      "product": "Crestline OS",
+      "month": 12,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 13645,
+      "revenue": 3161562.43,
+      "market": "UK"
+    },
+    {
+      "id": 60,
+      "product": "Crestline Cloud",
+      "month": 12,
+      "year": 2024,
+      "quarter": "Q4",
+      "units_sold": 23205,
+      "revenue": 1513372.01,
+      "market": "UK"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "department": "Engineering",
+      "employee_count": 30,
+      "average_salary": 145717.77
+    },
+    {
+      "id": 2,
+      "department": "Finance",
+      "employee_count": 10,
+      "average_salary": 112040.3
+    },
+    {
+      "id": 3,
+      "department": "HR",
+      "employee_count": 10,
+      "average_salary": 103036.0
+    },
+    {
+      "id": 4,
+      "department": "Marketing",
+      "employee_count": 15,
+      "average_salary": 110707.6
+    },
+    {
+      "id": 5,
+      "department": "Product",
+      "employee_count": 15,
+      "average_salary": 136561.6
+    },
+    {
+      "id": 6,
+      "department": "Sales",
+      "employee_count": 20,
+      "average_salary": 111534.95
+    }
+  ],
+  "campaigns": [
+    {
+      "id": 1,
+      "product": "Crestline X",
+      "campaign_name": "Power Meets Simplicity",
+      "budget": 511832.14,
+      "channel": "Events",
+      "quarter": "Q1",
+      "year": 2024,
+      "impressions": 4270905,
+      "clicks": 347878,
+      "conversions": 36447,
+      "ctr": 8.15
+    },
+    {
+      "id": 2,
+      "product": "Crestline X",
+      "campaign_name": "X Marks the Future",
+      "budget": 2111601.27,
+      "channel": "Google Ads",
+      "quarter": "Q2",
+      "year": 2024,
+      "impressions": 2848312,
+      "clicks": 148381,
+      "conversions": 9992,
+      "ctr": 5.21
+    },
+    {
+      "id": 3,
+      "product": "Crestline X",
+      "campaign_name": "Unleash X",
+      "budget": 597934.37,
+      "channel": "Email",
+      "quarter": "Q3",
+      "year": 2024,
+      "impressions": 2444563,
+      "clicks": 118817,
+      "conversions": 6471,
+      "ctr": 4.86
+    },
+    {
+      "id": 4,
+      "product": "Crestline X",
+      "campaign_name": "X \u2014 Everyday Extraordinary",
+      "budget": 314053.69,
+      "channel": "Google Ads",
+      "quarter": "Q4",
+      "year": 2024,
+      "impressions": 4663433,
+      "clicks": 317120,
+      "conversions": 17013,
+      "ctr": 6.8
+    },
+    {
+      "id": 5,
+      "product": "Crestline Pro",
+      "campaign_name": "Work Without Limits",
+      "budget": 2078291.26,
+      "channel": "YouTube",
+      "quarter": "Q1",
+      "year": 2024,
+      "impressions": 3251080,
+      "clicks": 262019,
+      "conversions": 23784,
+      "ctr": 8.06
+    },
+    {
+      "id": 6,
+      "product": "Crestline Pro",
+      "campaign_name": "Pro for Professionals",
+      "budget": 1700860.77,
+      "channel": "LinkedIn",
+      "quarter": "Q2",
+      "year": 2024,
+      "impressions": 2904467,
+      "clicks": 215252,
+      "conversions": 21093,
+      "ctr": 7.41
+    },
+    {
+      "id": 7,
+      "product": "Crestline Pro",
+      "campaign_name": "Enterprise-Grade. Consumer-Simple.",
+      "budget": 1447005.93,
+      "channel": "Email",
+      "quarter": "Q3",
+      "year": 2024,
+      "impressions": 4145911,
+      "clicks": 224231,
+      "conversions": 16707,
+      "ctr": 5.41
+    },
+    {
+      "id": 8,
+      "product": "Crestline Pro",
+      "campaign_name": "Pro \u2014 Built for You",
+      "budget": 593333.08,
+      "channel": "Events",
+      "quarter": "Q4",
+      "year": 2024,
+      "impressions": 3564267,
+      "clicks": 172895,
+      "conversions": 12479,
+      "ctr": 4.85
+    },
+    {
+      "id": 9,
+      "product": "Crestline Watch",
+      "campaign_name": "Time Redefined",
+      "budget": 1972529.52,
+      "channel": "Instagram",
+      "quarter": "Q1",
+      "year": 2024,
+      "impressions": 2403246,
+      "clicks": 135327,
+      "conversions": 8573,
+      "ctr": 5.63
+    },
+    {
+      "id": 10,
+      "product": "Crestline Watch",
+      "campaign_name": "Health First",
+      "budget": 2056810.92,
+      "channel": "Google Ads",
+      "quarter": "Q2",
+      "year": 2024,
+      "impressions": 3069056,
+      "clicks": 208374,
+      "conversions": 23030,
+      "ctr": 6.79
+    },
+    {
+      "id": 11,
+      "product": "Crestline Watch",
+      "campaign_name": "Always On",
+      "budget": 1330384.2,
+      "channel": "Email",
+      "quarter": "Q3",
+      "year": 2024,
+      "impressions": 1675951,
+      "clicks": 85786,
+      "conversions": 3749,
+      "ctr": 5.12
+    },
+    {
+      "id": 12,
+      "product": "Crestline Watch",
+      "campaign_name": "Your Health. Your Time.",
+      "budget": 1184719.59,
+      "channel": "Email",
+      "quarter": "Q4",
+      "year": 2024,
+      "impressions": 3184973,
+      "clicks": 242917,
+      "conversions": 30952,
+      "ctr": 7.63
+    },
+    {
+      "id": 13,
+      "product": "Crestline OS",
+      "campaign_name": "OS Built for Business",
+      "budget": 2196692.48,
+      "channel": "LinkedIn",
+      "quarter": "Q1",
+      "year": 2024,
+      "impressions": 4232990,
+      "clicks": 80546,
+      "conversions": 4382,
+      "ctr": 1.9
+    },
+    {
+      "id": 14,
+      "product": "Crestline OS",
+      "campaign_name": "Your OS Evolved",
+      "budget": 945618.9,
+      "channel": "Events",
+      "quarter": "Q2",
+      "year": 2024,
+      "impressions": 1027704,
+      "clicks": 50825,
+      "conversions": 6958,
+      "ctr": 4.95
+    },
+    {
+      "id": 15,
+      "product": "Crestline OS",
+      "campaign_name": "Seamless by Design",
+      "budget": 2153002.14,
+      "channel": "Email",
+      "quarter": "Q3",
+      "year": 2024,
+      "impressions": 3734331,
+      "clicks": 229807,
+      "conversions": 28766,
+      "ctr": 6.15
+    },
+    {
+      "id": 16,
+      "product": "Crestline OS",
+      "campaign_name": "Work Flows Here",
+      "budget": 2235480.9,
+      "channel": "Google Ads",
+      "quarter": "Q4",
+      "year": 2024,
+      "impressions": 3587749,
+      "clicks": 293934,
+      "conversions": 30181,
+      "ctr": 8.19
+    },
+    {
+      "id": 17,
+      "product": "Crestline Cloud",
+      "campaign_name": "Secure. Scale. Succeed.",
+      "budget": 1633228.39,
+      "channel": "YouTube",
+      "quarter": "Q1",
+      "year": 2024,
+      "impressions": 4938371,
+      "clicks": 100768,
+      "conversions": 4720,
+      "ctr": 2.04
+    },
+    {
+      "id": 18,
+      "product": "Crestline Cloud",
+      "campaign_name": "Cloud Without Compromise",
+      "budget": 381341.35,
+      "channel": "Events",
+      "quarter": "Q2",
+      "year": 2024,
+      "impressions": 2308293,
+      "clicks": 157040,
+      "conversions": 13096,
+      "ctr": 6.8
+    },
+    {
+      "id": 19,
+      "product": "Crestline Cloud",
+      "campaign_name": "Business in the Cloud",
+      "budget": 2273046.55,
+      "channel": "Instagram",
+      "quarter": "Q3",
+      "year": 2024,
+      "impressions": 1243115,
+      "clicks": 59329,
+      "conversions": 6490,
+      "ctr": 4.77
+    },
+    {
+      "id": 20,
+      "product": "Crestline Cloud",
+      "campaign_name": "Your Data, Everywhere",
+      "budget": 1030876.56,
+      "channel": "LinkedIn",
+      "quarter": "Q4",
+      "year": 2024,
+      "impressions": 3121051,
+      "clicks": 222660,
+      "conversions": 15438,
+      "ctr": 7.13
+    }
+  ],
+  "metrics": [
+    {
+      "id": 1,
+      "month": 1,
+      "year": 2024,
+      "mrr": 2471442.0,
+      "churn_rate": 2.83,
+      "active_users": 46456,
+      "new_customers": 1068,
+      "nps_score": 48.6
+    },
+    {
+      "id": 2,
+      "month": 2,
+      "year": 2024,
+      "mrr": 2528677.0,
+      "churn_rate": 2.72,
+      "active_users": 48598,
+      "new_customers": 1193,
+      "nps_score": 57.4
+    },
+    {
+      "id": 3,
+      "month": 3,
+      "year": 2024,
+      "mrr": 2638235.0,
+      "churn_rate": 2.75,
+      "active_users": 49908,
+      "new_customers": 1641,
+      "nps_score": 50.9
+    },
+    {
+      "id": 4,
+      "month": 4,
+      "year": 2024,
+      "mrr": 2691991.0,
+      "churn_rate": 3.22,
+      "active_users": 52110,
+      "new_customers": 2087,
+      "nps_score": 58.8
+    },
+    {
+      "id": 5,
+      "month": 5,
+      "year": 2024,
+      "mrr": 2753784.0,
+      "churn_rate": 3.38,
+      "active_users": 54629,
+      "new_customers": 1312,
+      "nps_score": 61.3
+    },
+    {
+      "id": 6,
+      "month": 6,
+      "year": 2024,
+      "mrr": 2855597.0,
+      "churn_rate": 3.12,
+      "active_users": 56131,
+      "new_customers": 1107,
+      "nps_score": 71.0
+    },
+    {
+      "id": 7,
+      "month": 7,
+      "year": 2024,
+      "mrr": 3010180.0,
+      "churn_rate": 2.29,
+      "active_users": 57433,
+      "new_customers": 1435,
+      "nps_score": 59.5
+    },
+    {
+      "id": 8,
+      "month": 8,
+      "year": 2024,
+      "mrr": 3189910.0,
+      "churn_rate": 3.36,
+      "active_users": 59090,
+      "new_customers": 2048,
+      "nps_score": 54.7
+    },
+    {
+      "id": 9,
+      "month": 9,
+      "year": 2024,
+      "mrr": 3254741.0,
+      "churn_rate": 3.0,
+      "active_users": 61805,
+      "new_customers": 800,
+      "nps_score": 68.6
+    },
+    {
+      "id": 10,
+      "month": 10,
+      "year": 2024,
+      "mrr": 3416849.0,
+      "churn_rate": 3.23,
+      "active_users": 64585,
+      "new_customers": 1171,
+      "nps_score": 60.4
+    },
+    {
+      "id": 11,
+      "month": 11,
+      "year": 2024,
+      "mrr": 3533339.0,
+      "churn_rate": 2.72,
+      "active_users": 67110,
+      "new_customers": 2088,
+      "nps_score": 64.4
+    },
+    {
+      "id": 12,
+      "month": 12,
+      "year": 2024,
+      "mrr": 3712475.0,
+      "churn_rate": 1.85,
+      "active_users": 69822,
+      "new_customers": 898,
+      "nps_score": 68.4
+    }
+  ]
+}

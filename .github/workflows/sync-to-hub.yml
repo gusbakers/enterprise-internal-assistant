@@ -1,30 +1,87 @@
-name: Sync to Hugging Face Hub
+name: Test and deploy Crestline
 on:
   push:
-    branches: [main]
-
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: crestline-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  sync:
+  tests:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17
+        env:
+          POSTGRES_USER: crestline
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: crestline
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U crestline"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      DATABASE_URL: postgresql://crestline:ci-only-password@localhost:5432/crestline
+      FASTEMBED_CACHE_PATH: /tmp/crestline-models
+      HF_HUB_DISABLE_XET: '1'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python -m crestline.database
+      - run: python -m pytest -q
+      - run: python -m scripts.evaluate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evaluation
+          path: results/evaluation.json
+  container:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-
-      - name: Build clean deploy snapshot
+      - run: docker build -t crestline:test .
+      - name: Verify the deployed container
+        shell: bash
         run: |
-          rm -rf /tmp/hf-deploy
-          mkdir -p /tmp/hf-deploy
-          git archive HEAD | tar -x -C /tmp/hf-deploy
-          rm -rf /tmp/hf-deploy/qdrant_storage
-
-      - name: Push clean snapshot to HF Space
+          docker run -d --name crestline -p 7860:7860 crestline:test
+          ready=0
+          for attempt in $(seq 1 60); do
+            if curl -fsS http://localhost:7860/_stcore/health; then ready=1; break; fi
+            sleep 3
+          done
+          if [ "$ready" != 1 ]; then docker logs crestline; exit 1; fi
+          docker exec crestline python -c "from crestline.database import Database; from crestline.assistant import Assistant; r=Assistant(Database()).ask('How many Crestline X phones were sold in total?'); assert r.rows[0]['units_sold']==112182; print('Container SQL smoke test passed')"
+      - name: Container logs on failure
+        if: failure()
+        run: docker logs crestline || true
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: [tests, container]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: pip install 'huggingface_hub==0.36.2'
+      - name: Update the existing Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          cd /tmp/hf-deploy
-          git init -q
-          git checkout -q -b main
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
-          git add .
-          git commit -q -m "Deploy: sync from GitHub"
-          git push --force https://gustavoscience:$HF_TOKEN@huggingface.co/spaces/gustavoscience/crestline-internal-assistant main
+          python - <<'PY'
+          import os
+          from huggingface_hub import HfApi
+          token=os.environ.get('HF_TOKEN')
+          if not token:
+              raise SystemExit('HF_TOKEN secret must be configured in GitHub Actions.')
+          HfApi(token=token).upload_folder(
+              repo_id='gustavoscience/crestline-internal-assistant', repo_type='space',
+              folder_path='.', ignore_patterns=['.git/**','.github/**','__pycache__/**'],
+              delete_patterns=['agent/**','qdrant_storage/**','data/*.db','router.py','response_generator.py','state.py','test_agent.py','evaluate_agent.py','generate_test_questions.py','display_scores.py','agent_cli.py','scripts/test_*.py','scripts/generate_*.py','scripts/ingest_docs.py','scripts/evaluate_agent.py','scripts/display_scores.py','scripts/agent_cli.py','results/scores.json'],
+              commit_message='Deploy validated PostgreSQL, pgvector and Gemini assistant')
+          PY

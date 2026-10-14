@@ -1,217 +1,158 @@
-# Crestline Internal Assistant 🤖
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.12-blue?style=flat-square&logo=python" />
-  <img src="https://img.shields.io/badge/Groq-Llama%203.1%208B%20Instant-green?style=flat-square" />
-  <img src="https://img.shields.io/badge/Qdrant-Vector%20DB-red?style=flat-square" />
-  <img src="https://img.shields.io/badge/Streamlit-UI-ff4b4b?style=flat-square&logo=streamlit" />
-  <img src="https://img.shields.io/badge/🤗%20HuggingFace-Spaces-yellow?style=flat-square" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" />
-</p>
-
-<p align="center">
-  <b>An enterprise internal AI agent for Crestline Technologies — a fictional B2B SaaS company.</b><br>
-  A Groq-powered router sends employee questions to four domain tools (HR, Marketing, Product RAG + SQL), backed by a Streamlit UI and an evaluation harness.
-</p>
-
-<p align="center">
-  <a href="https://huggingface.co/spaces/gustavoscience/crestline-internal-assistant">
-    <img src="https://img.shields.io/badge/🚀%20Live%20Demo-HuggingFace%20Spaces-yellow?style=for-the-badge" />
-  </a>
-</p>
-
+---
+title: Crestline Internal Assistant
+emoji: ◈
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+short_description: Grounded answers across company documents and business data
 ---
 
-## 📌 What It Does
+# Crestline Internal Assistant
 
-Employees can ask natural-language questions and get routed automatically to the right data source — no need to know whether the answer lives in a spreadsheet or a policy doc.
+Finding an answer inside a company often means switching between policy documents, campaign briefs and database reports. I built Crestline to bring those sources into one conversation: ask a question, inspect the evidence, and see where the answer came from.
 
-| Domain | Example Question |
-|---|---|
-| 💰 SQL | *"How many Crestline X phones were sold?"* |
-| 👥 HR | *"What's the PTO policy after 3 years?"* |
-| 📣 Marketing | *"What was the Crestline Watch campaign strategy?"* |
-| 🛠️ Product | *"What changed in Crestline OS v3.2?"* |
+**Python · PostgreSQL · pgvector · Gemini · FastEmbed · Streamlit · Docker**
 
----
+[Open the assistant](https://huggingface.co/spaces/gustavoscience/crestline-internal-assistant) · [Tests and deployment](https://github.com/gusbakers/enterprise-internal-assistant/actions)
 
-## 🏗️ Architecture
+Crestline is a fictional company with a reproducible dataset. The app always identifies its response mode: **Gemini with sources** when the API is configured and succeeds, or **verified data / source excerpts** otherwise. A working evidence-mode demo is not presented as a successful Gemini call.
 
-```
-                    ┌──────────┐
-                    │   User   │
-                    └────┬─────┘
-                         ▼
-                    ┌──────────┐
-                    │ Streamlit│
-                    └────┬─────┘
-                         ▼
-                    ┌──────────┐
-                    │  Agent   │
-                    └────┬─────┘
-                         ▼
-                    ┌──────────┐
-                    │  Router  │  ← Groq (ChatGroq.invoke)
-                    └────┬─────┘
-        ┌────────┬───────┼────────┬────────┐
-        ▼        ▼       ▼        ▼
-   ┌────────┐┌────────┐┌────────┐┌────────┐
-   │ HRTool ││MktTool ││ProdTool││ SQLTool│
-   └───┬────┘└───┬────┘└───┬────┘└───┬────┘
-       └─────────┴─────────┘         │
-                 ▼                   ▼
-            ┌─────────┐         ┌─────────┐
-            │ Qdrant  │         │ SQLite  │
-            └────┬────┘         └────┬────┘
-                 └─────────┬─────────┘
-                           ▼
-                 ┌───────────────────┐
-                 │ ResponseGenerator │
-                 └────────┬──────────┘
-                          ▼
-                     Final Answer
+## From question to answer
+
+```mermaid
+flowchart TD
+    U["User question"] --> UI["Streamlit: input and session history"]
+    UI --> PY["Python: resolve follow-up and classify domain"]
+    PY --> KIND{"Supported request?"}
+    KIND -->|Business analytics| SQL["Python: validate filters and SQL template"]
+    SQL --> DB["PostgreSQL: parameterized read-only query"]
+    KIND -->|HR, Marketing, Product| EMB["FastEmbed: multilingual query embedding"]
+    EMB --> VEC["pgvector: exact cosine search"]
+    EMB --> TXT["PostgreSQL: full-text search"]
+    VEC --> RANK["Python: rank fusion and relevance filter"]
+    TXT --> RANK
+    DB --> E["Evidence: computed rows or source passages"]
+    RANK --> E
+    KIND -->|Unsupported or ambiguous| STOP["Clarify or acknowledge missing information"]
+    E --> CHECK{"Evidence available?"}
+    CHECK -->|No| STOP
+    CHECK -->|Yes| LLM{"Gemini configured and available?"}
+    LLM -->|Yes| GEN["Gemini: grounded answer in JSON"]
+    GEN --> VALID{"Valid citations and numbers?"}
+    VALID -->|Yes| ANSWER["Answer with source references"]
+    VALID -->|No| FALL["Verified rows or original excerpts"]
+    LLM -->|No| FALL
+    ANSWER --> OUT["Streamlit: answer, sources, data and query"]
+    FALL --> OUT
+    STOP --> OUT
+    OUT --> HISTORY["Session-local conversation history"]
 ```
 
-**Flow:** Streamlit collects the question → the `Agent` hands it to the `Router`, which classifies it via Groq → the matching tool queries Qdrant (HR/Marketing/Product) or SQLite (SQL) → `ResponseGenerator` formats the final answer for the UI.
-
----
-
-## 💭 Why I Built This
-
-Most portfolio agent projects I see do one thing — RAG over a folder of PDFs. I wanted something closer to what an internal assistant at an actual company would need: routing between **structured data (SQL)** and **unstructured documents (RAG)** across multiple domains, not just one.
-
-
-
----
-
-## 🧭 Project Status
-
-I ran this through a real debugging pass with Cursor after the first build, and I'd rather be upfront here about what's solid and what's still rough than pretend it's all finished. If you're reviewing this as a hiring manager or fellow engineer, that's probably more useful to you anyway.
-
-### ✅ Currently Working
-
-- End-to-end routing: question → correct tool → answer, **100% success rate** on the 20-question test set
-- Groq-based router using `ChatGroq.invoke()` with `llama-3.1-8b-instant`
-- Heuristic keyword fallback when `GROQ_API_KEY` isn't set — the agent still runs, just without LLM-based routing
-- RAG tools (HR/Marketing/Product) fall back to keyword search if Qdrant is unavailable
-- Streamlit app bootstraps docs, SQLite, and Qdrant on startup and caches the agent (no rebuild per click)
-- HuggingFace Space deploy builds Qdrant fresh at runtime from a clean snapshot
-
-### ⚠️ Next Engineering Improvements
-
-| Limitation | Detail |
+| Stack | What happens |
 |---|---|
-| **No LLM answer synthesis** | Responses are raw RAG chunks / SQL rows, not summarized prose. `ResponseGenerator` formats, it doesn't yet rewrite. |
-| **SQL tool is keyword-driven** | Not true text-to-SQL — it pattern-matches question phrasing to pre-built queries rather than generating SQL from scratch. |
-| **RAGAS scores ** | `evaluate_agent.py` does not yet call the real `ragas` library — current scores are not trustworthy as RAG quality metrics. |
-| **Duplicated tool code** | `HRTool`, `MarketingTool`, and `ProductTool` are ~90% identical — a shared base class hasn't been factored out yet. |
-| **Imperfect routing on edge cases** | General-domain questions can mis-route to HR because broad terms like "policies" overlap with HR keywords. |
+| **Streamlit** | Collects the question, keeps the last turns in that browser session, displays evidence and optional SQL details. Shared resources are cached; conversation state is not shared between users. |
+| **Python** | Resolves explicit follow-ups such as “And Q2?”, routes to one domain, validates supported filters and handles unsupported requests. Routing is deterministic, not an autonomous multi-agent system. |
+| **PostgreSQL** | Stores sales, employee aggregates, campaign metrics and company metrics. SQL templates use bound parameters and read-only transactions with a five-second statement timeout. |
+| **FastEmbed / ONNX** | Encodes document passages and questions using `paraphrase-multilingual-MiniLM-L12-v2` (384 dimensions), without PyTorch or a paid embedding API. |
+| **pgvector + full-text search** | Combines exact cosine search and lexical ranking using reciprocal rank fusion. Source restrictions and a similarity gate remove some irrelevant results. Thresholds remain an evaluation choice, not a correctness guarantee. |
+| **Gemini** | Optionally rewrites the retrieved evidence into a concise answer. JSON output includes source IDs; invalid references or unsupported numeric values fall back to original evidence. No LLM-generated SQL is executed. |
+| **Docker / Hugging Face** | Starts PostgreSQL on a private Unix socket, loads the reproducible dataset, then starts Streamlit on port 7860. An external PostgreSQL connection can be supplied instead. |
+| **GitHub Actions / pytest** | Checks SQL ground truth, routing, unsupported questions, retrieval against actual pgvector and container startup before syncing the Space. |
 
----
+## How documents become searchable
 
-## 🛠️ Engineering Log — What Was Broken, What Got Fixed
+```mermaid
+flowchart TD
+    DOC["Versioned HR, Marketing and Product documents"] --> CHUNK["Python: section-aware chunks with source IDs"]
+    CHUNK --> ENCODE["FastEmbed: multilingual vectors"]
+    ENCODE --> STORE["PostgreSQL: content, metadata and vector columns"]
+    FIX["Versioned business fixture"] --> TABLES["PostgreSQL: business tables"]
+    STORE --> HASH["Dataset fingerprint: reuse matching data"]
+    TABLES --> HASH
+    HASH --> READY["Assistant ready"]
+```
 
-The first version of this looked complete but quietly wasn't — the eval script was returning placeholder errors for every single question. Here's what was actually wrong and how I fixed it:
+The loader preserves short sections, attaches document headings, and checks a dataset fingerprint. Matching data is reused on restart; a changed dataset requires a fresh demo database instead of silently overwriting an existing one. This small corpus uses exact vector search; an HNSW index is not necessary at this size.
 
-| Issue | Impact | Fix |
-|---|---|---|
-| `evaluate_agent.py` / `test_agent.py` imported a non-existent `agent.py` interface | All 20 eval responses returned `[NO_AGENT_AVAILABLE]` | Switched to `from agent import Agent` |
-| Groq router called the wrong API (`predict`/`complete`) | LLM routing silently failed without surfacing an error | Switched to `ChatGroq.invoke()` |
-| Router missed "hr", "policies", doc filenames, and "X domain" phrasing | Meta-style test questions routed to `unknown` | Added explicit domain detection, filename mapping, expanded keyword lists |
-| `app.py` rebuilt the agent on every click; no docs/DB bootstrap | Slow UI, HF Space cold start could fail outright | App now bootstraps data once on startup and caches the agent |
-| Response generator duplicated category metadata in every answer | Noisy, repetitive UI output | Returns tool output directly, no metadata wrapping |
+## Try these questions
 
----
+| Question | What to inspect |
+|---|---|
+| How many Crestline X phones were sold in total? | 112,182 units across the 2024 fixture; inspect the sum and source rows. |
+| Which month had the highest Crestline X sales in 2024? | November, 12,974 units. |
+| How many employees work in Engineering? | 30 employees. |
+| What is the maximum PTO carryover? | Policy evidence describing 10 days. |
+| Who is the target audience for the Crestline Watch campaign? | The campaign brief and audience section. |
+| What are the Cloud API rate limits? | Product documentation, with the relevant plan tier. |
+| Crestline X sales in Q1 2024 → And Q2? | An explicit follow-up retains the product and changes the quarter. |
+| Crestline X sales in 2026 | Acknowledges that those records are unavailable. |
 
-## 📊 Post-Fix Validation Results
+These are dataset facts and regression expectations, not measured real-company outcomes.
 
+## Run locally
 
-| Domain | Questions | Avg. response length |
-|---|---|---|
-| HR | 5 | 676 chars |
-| Marketing | 5 | 5,216 chars |
-| Product | 5 | 8,380 chars |
-| General | 5 | 700 chars |
-
-Qdrant ingestion verified: **95 vector points across 3 collections** (hr_docs, marketing_docs, product_docs). Agent unit tests pass.
-
----
-
-## 🛠️ Tech Stack
-
-| Component | Technology | Purpose |
-|---|---|---|
-| **Orchestration** | `Agent` + `Router` classes | Question classification and dispatch to tools |
-| **LLM** | Groq — `llama-3.1-8b-instant` | Query routing (heuristic fallback if no API key) |
-| **Vector DB** | Qdrant | Semantic search over HR, marketing, product docs |
-| **SQL DB** | SQLite | Sales, employees, campaigns, metrics |
-| **UI** | Streamlit | Chat interface, bootstraps data on startup |
-| **Eval harness** | Custom script (RAGAS integration pending) | Success rate, routed category, response length tracking |
-| **Deploy** | HuggingFace Spaces | Public demo, builds Qdrant fresh at runtime |
-| **Language** | Python 3.12 | Everything |
-
----
-
-## 🚀 Getting Started
+Docker provides the application **and** PostgreSQL/pgvector; no external database account is required.
 
 ```bash
-# 1. Set up environment
-python3.12 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-
-# 2. Generate data and ingest into Qdrant
-python scripts/generate_docs.py
-python scripts/generate_db.py
-python scripts/ingest_docs.py
-
-# 3. Run the app
-streamlit run app.py
-
-# Or run the evaluation harness instead:
-python evaluate_agent.py
-python display_scores.py
+git clone https://github.com/gusbakers/enterprise-internal-assistant.git
+cd enterprise-internal-assistant
+docker build -t crestline .
+docker run --rm --name crestline -p 7860:7860 crestline
 ```
 
-Set `GROQ_API_KEY` in `.env` to enable LLM-based routing. Without it, the agent still works using the heuristic keyword fallback.
+Open `http://localhost:7860`. To stop it, use `docker stop crestline`. The demo database is ephemeral and rebuilt from checked-in fixtures on a new container. It is not a persistent production database.
 
----
+To enable Gemini, copy `.env.example` to `.env`, set `GEMINI_API_KEY` locally, and run:
 
-## 🗺️ What's Next
+```bash
+docker run --rm --name crestline -p 7860:7860 --env-file .env crestline
+```
 
-In priority order, here's what I'd tackle next if I kept going on this:
+On Hugging Face, set `GEMINI_API_KEY` under **Settings → Variables and secrets → New secret**. `GEMINI_MODEL` selects the model; the default is `gemini-3.8-flash`. Model availability and API quotas depend on the provider account. An API error is visible as evidence mode, not silently described as successful synthesis.
 
-1. **LLM answer synthesis** — have Groq summarize raw tool output into natural prose instead of returning chunks/rows directly
-2. **Real RAGAS evaluation** — replace the simulated scoring in `evaluate_agent.py` with actual `ragas` library calls (faithfulness, answer relevancy, context precision)
-3. **Deduplicate RAG tools** — factor `HRTool`, `MarketingTool`, and `ProductTool` into one shared base class with a `collection_name` parameter
+For an external PostgreSQL instance, set `DATABASE_URL` to a dedicated empty demo database with permission to create the `vector` extension and `crestline` schema. The image uses PostgreSQL 17; the `pgvector/pgvector:pg17` base follows that upstream tag.
 
----
+## Tests and evaluation
 
-## 💡 Crestline Technologies (Fictional Company Context)
+```bash
+pip install -r requirements-dev.txt
+python -m pytest -q
 
-The agent simulates an internal assistant for a fictional B2B SaaS company selling:
+# With DATABASE_URL pointing to a dedicated PostgreSQL + pgvector test database:
+python -m crestline.database
+python -m pytest -q
+python -m scripts.evaluate
+```
 
-| Product | Category |
-|---|---|
-| Crestline Pro | 💻 Business laptop |
-| Crestline X | 📱 Smartphone |
-| Crestline Watch | ⌚ Smartwatch |
-| Crestline OS | 💾 Operating system |
-| Crestline Cloud | ☁️ Cloud storage for business |
+Without PostgreSQL, unit tests use an in-memory fixture adapter and the integration tests are explicitly skipped. CI runs the integration tests on PostgreSQL, builds the actual Docker image and checks the running container.
 
----
+`results/evaluation.json` records each question, expected check, actual response, sources, timings and pass/fail. The CI run uploads it as an artifact. The checks measure fixed SQL values, retrieval evidence and abstention. **They do not measure general answer accuracy or Gemini answer quality.** There are no random RAGAS scores and no unverified “100% accuracy” claims. Gemini contract tests mock the API; an authenticated live evaluation is a separate step.
 
-## 📄 License
+## Design choices and scope
 
-MIT — see [LICENSE](LICENSE) for details.
+- **PostgreSQL + pgvector** replaces SQLite plus local Qdrant, keeping relational records and vector content in one database. Qdrant remains a valid alternative; the migration is about this project's data model, not claiming one engine is universally better.
+- **SQL templates** deliberately cover a bounded analytics scope. Unsupported periods, customer-level purchases, sales-channel breakdowns and comparisons request clarification instead of inventing an answer.
+- **Evidence first:** citations, source text and computed rows stay inspectable. Citation and number checks reduce some failure modes but do not prove every generated claim is entailed by its source.
+- **Public demo, not production HR:** no real personal records, no uploads, no arbitrary queries. Employee outputs are aggregate counts or salaries. Production use would need authentication, role-based access, a least-privilege database account, durable storage, global rate limits and monitoring.
+- **Multilingual retrieval** supports English and Spanish queries. In evidence mode, document excerpts retain their original English; Gemini can synthesize a Spanish answer when available.
+- **Dataset scope:** nine source documents; 60 sales rows, six department aggregates representing 100 employees, 20 campaign rows and 12 monthly metrics rows. Business facts cover 2024. Briefs describe plans; database rows describe demo recorded metrics. They are not interchangeable.
 
----
+## Project layout
 
-## 👤 Author
+```text
+app.py                 Streamlit conversation and evidence viewer
+crestline/             Routing, SQL, retrieval, Gemini, database and source models
+docs/                  Versioned company documents
+data/business.json     Reproducible business fixture
+tests/                 Unit and PostgreSQL integration tests
+scripts/evaluate.py    Ground-truth regression evaluation
+scripts/start.sh       PostgreSQL and Streamlit lifecycle
+Dockerfile             Self-contained deployment
+.github/workflows/     Validation and Space deployment
+```
 
-Built by **Gustavo** — Data professional  | Master's in Data Science 
-Data Engineer · ML Engineer · AI Engineer
+Built by **Gustavo** · Master's in Data Science · [GitHub](https://github.com/gusbakers) · [LinkedIn](https://www.linkedin.com/in/gustavo-f-a27066145)
 
-
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/gustavo-f-a27066145)
-[![GitHub](https://img.shields.io/badge/GitHub-@gusbakers-black?style=flat-square&logo=github)](https://github.com/gusbakers)
+MIT — see [LICENSE](LICENSE).
