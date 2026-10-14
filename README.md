@@ -6,7 +6,14 @@ Finding an answer inside a company often means switching between policy document
 
 **Python · PostgreSQL · pgvector · Gemini · FastEmbed · Streamlit · Docker**
 
-[Open the assistant](https://huggingface.co/spaces/gustavoscience/crestline-internal-assistant) · [Tests and deployment](https://github.com/gusbakers/enterprise-internal-assistant/actions)
+<p align="center">
+  <a href="https://huggingface.co/spaces/gustavoscience/crestline-internal-assistant">
+    <img src="https://raw.githubusercontent.com/gusbakers/enterprise-internal-assistant/main/docs/assets/open-assistant.svg" alt="Open Crestline Assistant — launch the interactive demo" width="360" height="88">
+  </a>
+</p>
+<p align="center">Ask a question. Get the essentials. Explore the sources.<br>
+  <a href="https://github.com/gusbakers/enterprise-internal-assistant/actions">Tests &amp; deployment</a>
+</p>
 
 Crestline is a fictional company with a reproducible dataset. The app always identifies its response mode: **Gemini with sources** when the API is configured and succeeds, or **verified data / concise source selections** otherwise. Answers lead with the essential facts; full passages stay in the Sources panel. A working evidence-mode demo is not presented as a successful Gemini call.
 
