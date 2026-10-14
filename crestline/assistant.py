@@ -2,6 +2,7 @@ import json
 import re
 import time
 
+from crestline.answers import concise_evidence
 from crestline.gemini import Gemini
 from crestline.models import Evidence, Result
 from crestline.retrieval import retrieve
@@ -39,7 +40,12 @@ class Assistant:
                     result.answer="No matching records are available for those filters."; result.mode="no evidence"
                 else:
                     result.evidence=[Evidence("S1",f"PostgreSQL · {query.table}",json.dumps({"scope":query.note,"rows":rows},default=str))]
-                    result.answer=self.format_rows(rows)+"\n\n"+query.note+" [S1]"
+                    display_rows=rows[:3]
+                    if not re.search(r'revenue|ingresos|recaud',normalize(resolved)) and any('units_sold' in row for row in display_rows):
+                        display_rows=[{k:v for k,v in row.items() if k!='revenue'} for row in display_rows]
+                    result.answer=self.format_rows(display_rows)+" [S1]"
+                    if len(rows)>3:
+                        result.answer+="\n\nMore results are available in Data."
         else:
             q=normalize(resolved)
             if re.search(r"headcount.*increase|request.*headcount|stock price|share price|precio.*accion|ceo.*salary", q):
@@ -47,7 +53,7 @@ class Assistant:
             else:
                 result.evidence=retrieve(self.db,resolved,domain)
             if result.evidence:
-                result.answer="\n\n".join(f"**[{e.id}] {e.source.split(' — ')[-1]}**\n\n{e.text}" for e in result.evidence)
+                result.answer=concise_evidence(resolved,result.evidence)
                 result.mode="source excerpts"
             else:
                 result.answer="I couldn't find sufficient evidence in the available documents to answer that. Please clarify the topic or product."

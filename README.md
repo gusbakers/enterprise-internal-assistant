@@ -8,7 +8,7 @@ Finding an answer inside a company often means switching between policy document
 
 [Open the assistant](https://huggingface.co/spaces/gustavoscience/crestline-internal-assistant) · [Tests and deployment](https://github.com/gusbakers/enterprise-internal-assistant/actions)
 
-Crestline is a fictional company with a reproducible dataset. The app always identifies its response mode: **Gemini with sources** when the API is configured and succeeds, or **verified data / source excerpts** otherwise. A working evidence-mode demo is not presented as a successful Gemini call.
+Crestline is a fictional company with a reproducible dataset. The app always identifies its response mode: **Gemini with sources** when the API is configured and succeeds, or **verified data / concise source selections** otherwise. Answers lead with the essential facts; full passages stay in the Sources panel. A working evidence-mode demo is not presented as a successful Gemini call.
 
 ## From question to answer
 
@@ -33,7 +33,7 @@ flowchart TD
     LLM -->|Yes| GEN["Gemini: grounded answer in JSON"]
     GEN --> VALID{"Valid citations and numbers?"}
     VALID -->|Yes| ANSWER["Answer with source references"]
-    VALID -->|No| FALL["Verified rows or original excerpts"]
+    VALID -->|No| FALL["Python: concise rows or cited fact selection"]
     LLM -->|No| FALL
     ANSWER --> OUT["Streamlit: answer, sources, data and query"]
     FALL --> OUT
@@ -48,7 +48,7 @@ flowchart TD
 | **PostgreSQL** | Stores sales, employee aggregates, campaign metrics and company metrics. SQL templates use bound parameters and read-only transactions with a five-second statement timeout. |
 | **FastEmbed / ONNX** | Encodes document passages and questions using `paraphrase-multilingual-MiniLM-L12-v2` (384 dimensions), without PyTorch or a paid embedding API. |
 | **pgvector + full-text search** | Combines exact cosine search and lexical ranking using reciprocal rank fusion. Source restrictions and a similarity gate remove some irrelevant results. Thresholds remain an evaluation choice, not a correctness guarantee. |
-| **Gemini** | Optionally rewrites the retrieved evidence into a concise answer. JSON output includes source IDs; invalid references or unsupported numeric values fall back to original evidence. No LLM-generated SQL is executed. |
+| **Gemini** | Optionally rewrites the retrieved evidence into a concise answer. JSON output includes source IDs; invalid references or unsupported numeric values fall back to concise cited evidence. Answers are instructed to stay within 80 words. No LLM-generated SQL is executed. |
 | **Docker / Hugging Face** | Starts PostgreSQL on a private Unix socket, loads the reproducible dataset, then starts Streamlit on port 7860. An external PostgreSQL connection can be supplied instead. |
 | **GitHub Actions / pytest** | Checks SQL ground truth, routing, unsupported questions, retrieval against actual pgvector and container startup before syncing the Space. |
 
@@ -66,6 +66,10 @@ flowchart TD
 ```
 
 The loader preserves short sections, attaches document headings, and checks a dataset fingerprint. Matching data is reused on restart; a changed dataset requires a fresh demo database instead of silently overwriting an existing one. This small corpus uses exact vector search; an HNSW index is not necessary at this size.
+
+## Interactive workspace
+
+The blue workspace includes topic navigation, quick questions, expandable sources, session-local thumbs-up/down feedback, and a monthly sales chart inside the Data panel. Without Gemini, deterministic extraction selects short cited facts instead of displaying whole chunks. It is extractive, not a generative summary; selected facts keep the original source language.
 
 ## Try these questions
 

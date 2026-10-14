@@ -76,9 +76,16 @@ jobs:
           python - <<'PY'
           import os
           from huggingface_hub import HfApi
+          from pathlib import Path
           token=os.environ.get('HF_TOKEN')
           if not token:
               raise SystemExit('HF_TOKEN secret must be configured in GitHub Actions.')
+          # Keep the GitHub README clean; Space metadata belongs to deployment.
+          readme=Path('README.md')
+          body=readme.read_text()
+          if not body.startswith('---\n'):
+              header="---\ntitle: Crestline Internal Assistant\nemoji: 🤖\ncolorFrom: blue\ncolorTo: indigo\nsdk: docker\napp_port: 7860\npinned: false\nshort_description: Essential answers connected to company sources\n---\n\n"
+              readme.write_text(header+body)
           HfApi(token=token).upload_folder(
               repo_id='gustavoscience/crestline-internal-assistant', repo_type='space',
               folder_path='.', ignore_patterns=['.git/**','.github/**','__pycache__/**'],
