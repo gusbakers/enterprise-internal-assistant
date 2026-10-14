@@ -21,6 +21,16 @@ def retrieve(db, question, domain, limit=3):
         if "api" in q or "endpoint" in q: allowed_source="cloud_api_docs"
         elif "requirements" in q or "requisitos" in q: allowed_source="system_requirements"
         elif "changelog" in q or re.search(r"\bv3\.|\bversion|changed|cambio", q): allowed_source="crestline_os_changelog"
+    # A plan comparison needs every tier, not only the nearest three chunks.
+    if allowed_source == "cloud_api_docs" and re.search(r"rate limit|limite", q):
+        tiers = db.read("SELECT source,section,content FROM crestline.chunks "
+                        "WHERE domain=%s AND source LIKE %s AND section=%s ORDER BY id",
+                        (domain, "%cloud_api_docs%", "RATE LIMITS"))
+        tiers = [row for row in tiers if re.search(r"Free Tier:|Starter \(|Business \(|Enterprise \(", row["content"])]
+        order = {"Free Tier":0,"Starter":1,"Business":2,"Enterprise":3}
+        tiers.sort(key=lambda row:next((rank for name,rank in order.items() if name in row["content"]),4))
+        if tiers:
+            return [Evidence(f"S{i}",row["source"]+" — "+row["section"],row["content"]) for i,row in enumerate(tiers,1)]
     # Expand vocabulary, never evidence: facts still come only from stored chunks.
     retrieval_question = question
     translations = {"vacaciones": "paid time off PTO policy", "remoto": "remote work", "requisitos": "system requirements", "publico objetivo": "target audience", "onboarding": "new employee onboarding required documents"}

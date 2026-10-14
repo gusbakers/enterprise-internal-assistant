@@ -43,3 +43,9 @@ def test_remote_schedule_is_policy_not_headcount(database):
     assert result.domain=='hr'
     assert '4 days' in result.answer
     assert not result.rows
+
+
+def test_api_answer_covers_all_documented_tiers(database):
+    result=Assistant(database).ask('What are the Cloud API rate limits?')
+    for fact in ('100 requests per hour','2,000 requests per hour','10,000 requests per hour','Unlimited requests'):
+        assert fact in result.answer
