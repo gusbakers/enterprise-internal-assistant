@@ -44,6 +44,8 @@ def main():
         if 'mode' in case:
             passed=passed and result.mode==case['mode']
         records.append({'case':case,'passed':bool(passed),'result':asdict(result)})
+        if not passed:
+            print(json.dumps(records[-1], default=str))
     sha=subprocess.run(['git','rev-parse','HEAD'],capture_output=True,text=True).stdout.strip() or 'unknown'
     output={'generated_at':datetime.now(timezone.utc).isoformat(),'commit':sha,
             'scope':'Fixed regression cases: SQL values, retrieval evidence, and abstention. Not general answer accuracy.',
