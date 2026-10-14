@@ -1,6 +1,6 @@
 ---
 title: Crestline Internal Assistant
-emoji: ◈
+emoji: 🤖
 colorFrom: blue
 colorTo: green
 sdk: docker
