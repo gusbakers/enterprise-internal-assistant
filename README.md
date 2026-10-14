@@ -1,13 +1,4 @@
----
-title: Crestline Internal Assistant
-emoji: 🤖
-colorFrom: blue
-colorTo: green
-sdk: docker
-app_port: 7860
-pinned: false
-short_description: Grounded answers across company documents and business data
----
+
 
 # Crestline Internal Assistant
 
